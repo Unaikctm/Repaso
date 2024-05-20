@@ -13,6 +13,10 @@ public class ModeloCaballero{
 	public ArrayList<Caballero> getCaballeros() {
 		ArrayList<Caballero> caballeros = new ArrayList<Caballero>();
 		try {
+			ModeloArma ma = new ModeloArma();
+			ma.setConector(con);
+			ModeloEscudo me = new ModeloEscudo();
+			me.setConector(con);
 			Statement st = con.getCon().createStatement();
 			ResultSet rs = st.executeQuery("SELECT * FROM caballeros");
 			
@@ -23,7 +27,8 @@ public class ModeloCaballero{
 				caballero.setFuerza(rs.getInt("fuerza"));
 				caballero.setExperiencia(rs.getInt("experiencia"));
 				caballero.setFoto(rs.getString("foto"));
-				caballero.setArma_id(rs.getInt("arma_id"));
+				caballero.setArma(ma.getArma(rs.getInt("arma_id")));
+				caballero.setEscudo(me.getEscudo(rs.getInt("escudo_id")));
 				caballeros.add(caballero);
 			}
 			return caballeros;
@@ -38,6 +43,10 @@ public class ModeloCaballero{
 	
 	public Caballero getCaballero(int id) {
 		try {
+			ModeloArma ma = new ModeloArma();
+			ma.setConector(con);
+			ModeloEscudo me = new ModeloEscudo();
+			me.setConector(con);
 			PreparedStatement pst =con.getCon().prepareStatement("SELECT * FROM caballeros WHERE id=?");
 			pst.setInt(1, id);
 			ResultSet rs = pst.executeQuery();
@@ -49,7 +58,8 @@ public class ModeloCaballero{
 				caballero.setFuerza(rs.getInt("fuerza"));
 				caballero.setExperiencia(rs.getInt("experiencia"));
 				caballero.setFoto(rs.getString("foto"));
-				caballero.setArma_id(rs.getInt("arma_id"));
+				caballero.setArma(ma.getArma(rs.getInt("arma_id")));
+				caballero.setEscudo(me.getEscudo(rs.getInt("escudo_id")));
 				return caballero;
 			}
 		} catch (SQLException e) {
