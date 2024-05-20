@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class ModeloCaballero{
 	
-	private Conector con= new Conector();
+	private Conector con;
 	
 	public ArrayList<Caballero> getCaballeros() {
 		ArrayList<Caballero> caballeros = new ArrayList<Caballero>();
@@ -56,5 +56,9 @@ public class ModeloCaballero{
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void setConector(Conector con) {
+		this.con= con;
 	}
 }

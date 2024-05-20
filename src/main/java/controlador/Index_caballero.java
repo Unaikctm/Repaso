@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import modelo.Caballero;
+import modelo.Conector;
 import modelo.ModeloCaballero;
 
 /**
@@ -31,8 +32,10 @@ public class Index_caballero extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ModeloCaballero mc = new ModeloCaballero();
 		
+		
+		ModeloCaballero mc = new ModeloCaballero();
+		mc.setConector(new Conector());
 		ArrayList<Caballero> caballeros = mc.getCaballeros();
 		
 		request.setAttribute("caballeros", caballeros);
