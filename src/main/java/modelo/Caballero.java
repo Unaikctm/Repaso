@@ -9,6 +9,16 @@ public class Caballero {
 	private Arma arma;
 	private Escudo escudo;
 	
+	public Caballero() {}
+	public Caballero(String nombre, int fuerza, int experiencia, String foto, Arma arma, Escudo escudo) {
+		this.nombre = nombre;
+		this.fuerza = fuerza;
+		this.experiencia = experiencia;
+		this.foto = foto;
+		this.arma = arma;
+		this.escudo = escudo;
+	}
+
 	public int getId() {
 		return id;
 	}

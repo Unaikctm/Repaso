@@ -68,6 +68,26 @@ public class ModeloCaballero{
 		return null;
 	}
 	
+	public void insert(Caballero caballero) {
+		try {
+			ModeloArma ma = new ModeloArma();
+			ma.setConector(con);
+			ModeloEscudo me = new ModeloEscudo();
+			me.setConector(con);
+			PreparedStatement pst =con.getCon().prepareStatement("INSERT INTO caballeros (id, nombre, fuerza, experiencia, foto, arma_id, escudo_id) VALUES (?,?,?,?,?,?,?)");
+			pst.setInt(1, caballero.getId());
+			pst.setString(2, caballero.getNombre());
+			pst.setInt(3, caballero.getFuerza());
+			pst.setInt(4, caballero.getExperiencia());
+			pst.setString(5, caballero.getFoto());
+			pst.setInt(6, caballero.getArma().getId());
+			pst.setInt(7, caballero.getEscudo().getId());
+			pst.execute();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public void setConector(Conector con) {
 		this.con= con;
 	}

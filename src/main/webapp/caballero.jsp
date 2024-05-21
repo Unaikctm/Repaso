@@ -11,6 +11,7 @@
 <body>
   <div class="container">
     <h1 class="mt-5">Caballeros</h1>
+    <a href="Form_caballero">Insertar caballero</a>
     <table class="table mt-3">
       <thead class="thead-dark">
         <tr>
