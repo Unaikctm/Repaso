@@ -40,7 +40,7 @@
 	      	<div class="form-group">
 	        	<label for="escudo">Escudo</label>
 	        	<select class="form-control" id="escudo" name="escudo_id">
-	        		<option value=0></option>
+	        	<option value=0></option>
 	          		<c:forEach items="${escudos}" var="escudo">
 	          			<option value="${escudo.id}">${escudo.nombre}</option>
 	          		</c:forEach>

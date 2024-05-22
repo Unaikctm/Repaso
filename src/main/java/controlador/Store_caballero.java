@@ -42,27 +42,32 @@ public class Store_caballero extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String nombre = request.getParameter("nombre");
-		int fuerza = Integer.parseInt(request.getParameter("fuerza"));
-		int experiencia = Integer.parseInt(request.getParameter("experiencia"));
-		String foto = request.getParameter("foto");
-		int arma_id = Integer.parseInt(request.getParameter("arma_id"));
-		int escudo_id = Integer.parseInt(request.getParameter("escudo_id"));
-		
-		ModeloArma ma = new ModeloArma();
-		ma.setConector(new Conector());
-		
-		ModeloEscudo me = new ModeloEscudo();
-		me.setConector(new Conector());
-		
-		Caballero caballero = new Caballero(nombre,fuerza,experiencia,foto,ma.getArma(arma_id),me.getEscudo(escudo_id));
-		
-		if(Validador.algunFallo(nombre, fuerza, experiencia, nombre, arma_id, escudo_id)==false) {
-			ModeloCaballero mc = new ModeloCaballero();
-			mc.setConector(new Conector());
-			mc.insert(caballero);
+		if (Validador.stringVacio(request.getParameter("fuerza")) ==true || Validador.stringVacio(request.getParameter("experiencia"))==true) {
+			response.sendRedirect("Index_caballero");
+		}else {
+			int fuerza = Integer.parseInt(request.getParameter("fuerza"));
+			int experiencia = Integer.parseInt(request.getParameter("experiencia"));
+			String foto = request.getParameter("foto");
+			int arma_id = Integer.parseInt(request.getParameter("arma_id"));
+			int escudo_id = Integer.parseInt(request.getParameter("escudo_id"));
+			
+			ModeloArma ma = new ModeloArma();
+			ma.setConector(new Conector());
+			
+			ModeloEscudo me = new ModeloEscudo();
+			me.setConector(new Conector());
+			
+			Caballero caballero = new Caballero(nombre,fuerza,experiencia,foto,ma.getArma(arma_id),me.getEscudo(escudo_id));
+			
+			if(Validador.algunFallo(nombre, fuerza, experiencia, nombre, arma_id, escudo_id)==false) {
+				ModeloCaballero mc = new ModeloCaballero();
+				mc.setConector(new Conector());
+				mc.insert(caballero);
+			}
+			
+			response.sendRedirect("Index_caballero");
 		}
 		
-		response.sendRedirect("Index_caballero");
 	}
 
 }
