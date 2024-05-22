@@ -12,6 +12,7 @@ import modelo.Conector;
 import modelo.ModeloArma;
 import modelo.ModeloCaballero;
 import modelo.ModeloEscudo;
+import modelo.Validador;
 
 /**
  * Servlet implementation class Store_caballero
@@ -55,9 +56,11 @@ public class Store_caballero extends HttpServlet {
 		
 		Caballero caballero = new Caballero(nombre,fuerza,experiencia,foto,ma.getArma(arma_id),me.getEscudo(escudo_id));
 		
-		ModeloCaballero mc = new ModeloCaballero();
-		mc.setConector(new Conector());
-		mc.insert(caballero);
+		if(Validador.algunFallo(nombre, fuerza, experiencia, nombre, arma_id, escudo_id)==false) {
+			ModeloCaballero mc = new ModeloCaballero();
+			mc.setConector(new Conector());
+			mc.insert(caballero);
+		}
 		
 		response.sendRedirect("Index_caballero");
 	}

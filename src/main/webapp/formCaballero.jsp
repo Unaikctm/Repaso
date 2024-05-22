@@ -31,6 +31,7 @@
 	      	<div class="form-group">
 	        	<label for="arma">Arma</label>
 	        	<select class="form-control" id="arma" name="arma_id">
+	          		<option value=0></option>
 	          		<c:forEach items="${armas}" var="arma">
 	          			<option value="${arma.id}">${arma.nombre}</option>
 	          		</c:forEach>
@@ -39,6 +40,7 @@
 	      	<div class="form-group">
 	        	<label for="escudo">Escudo</label>
 	        	<select class="form-control" id="escudo" name="escudo_id">
+	        		<option value=0></option>
 	          		<c:forEach items="${escudos}" var="escudo">
 	          			<option value="${escudo.id}">${escudo.nombre}</option>
 	          		</c:forEach>
