@@ -11,7 +11,7 @@
 <body>
   	<div class="container mt-5">
 	    <h2>Formulario de Personaje</h2>
-	    <form action="Store_caballero" method="POST">
+	    <form action="Store_caballero" method="POST" enctype="multipart/form-data">
 	      	<div class="form-group">
 	        	<label for="nombre">Nombre</label>
 	        	<input type="text" class="form-control" id="nombre" name="nombre" value="${caballero.nombre}">
@@ -26,7 +26,7 @@
 	      	</div>
 	      	<div class="form-group">
 	        	<label for="foto">Foto</label>
-	        	<input type="text" class="form-control" id="foto" name="foto" value="${caballero.foto}">
+	        	<input type="file" class="form-control" id="foto" name="foto" value="${caballero.foto}">
 	      	</div>
 	      	<div class="form-group">
 	        	<label for="arma">Arma</label>
