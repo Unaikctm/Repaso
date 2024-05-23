@@ -31,6 +31,7 @@
 	</form>
     <h1 class="mt-5">Caballeros</h1>
     <a href="Form_caballero">Insertar caballero</a>
+    <a href="Index_lucha" class="ml-3">Lucha</a>
     <table class="table mt-3">
       <thead class="thead-dark">
         <tr>
