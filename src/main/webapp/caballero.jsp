@@ -24,6 +24,11 @@
   </c:if>
   
   <div class="container">
+  <h4>Buscador</h4>
+	<form action="Index_caballero" method="POST" class="form-inline">
+	  <input type="text" class="form-control mr-2" id="string" name="string" placeholder="Buscar...">
+	  <button type="submit" class="btn btn-primary">Buscar</button>
+	</form>
     <h1 class="mt-5">Caballeros</h1>
     <a href="Form_caballero">Insertar caballero</a>
     <table class="table mt-3">
