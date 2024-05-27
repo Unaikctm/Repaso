@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <h1 class="mt-5">Lucha</h1>
-    <form action="SeleccionaCaballero2" method="POST">
+    <form action="SeleccionaCaballeroDos" method="POST">
     <input type="text" hidden="true" name="cab1">
       <table class="table mt-3">
         <thead class="thead-dark">

@@ -58,7 +58,7 @@ public class SeleccionaCaballero extends HttpServlet {
 		
 		request.setAttribute("caballeros", caballeros);
 		
-		request.getRequestDispatcher("caballeroSelector2.jsp").forward(request, response);
+		request.getRequestDispatcher("caballeroSelectorDos.jsp").forward(request, response);
 		
 	}
 
